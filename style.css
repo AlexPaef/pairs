@@ -1,0 +1,78 @@
+body {
+    font-family: "Arial", sans-serif;
+}
+
+h1 {
+    font-size: 1.5rem;
+}
+
+.wrapper {
+    display: grid;
+    grid-auto-flow: column;
+}
+
+.wrapper div {
+    padding: 5px;
+    text-align: center;
+}
+
+.teacher {
+    background: #ccc;
+}
+
+.group1 {
+    background: #fdffb6;
+}
+
+.group2 {
+    background: #caffbf;
+}
+
+.group3 {
+    background: #a0c4ff;
+}
+
+.panel {
+    padding-top: 50px;
+}
+
+.panel .columns {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.panel .columns div {
+    width: 300px;
+    margin: 10px 10px 10px 5px;
+}
+
+label,
+textarea {
+    font-size: .8rem;
+    letter-spacing: 1px;
+}
+textarea {
+    padding: 10px;
+    max-width: 100%;
+    line-height: 1.5;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-shadow: 1px 1px 1px #999;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+button {
+    font-size: 1.2rem;
+    border-radius: 1rem;
+    border: 0;
+    background-color: #fe6d73;
+    color: white;
+    padding: 1rem;
+    margin: 5px;
+    cursor: pointer;
+}
+
