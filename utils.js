@@ -5,17 +5,10 @@ function arrayToDiv(array) {
 function splitToChunks(array, parts) {
   const arrayCopy = [...array];
   let result = [];
-  let random = Math.round(Math.random());
-  if (random) {
-    for (let i = parts; i > 0; i--) {
-      result.push(arrayCopy.splice(0, Math.ceil(arrayCopy.length / i)));
-    }
-  } else {
-    for (let i = parts; i > 0; i--) {
-      result.unshift(arrayCopy.splice(0, Math.ceil(arrayCopy.length / i)));
-    }
+  for (let i = parts; i > 0; i--) {
+    result.push(arrayCopy.splice(0, Math.ceil(arrayCopy.length / i)))
   }
-  return result;
+  return shuffledArray(result);
 };
 
 function convertToArray(str) {
