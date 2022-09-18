@@ -1,17 +1,17 @@
-import { arrayToDiv, splitToChunks, convertToArray, shuffledArray } from './utils.js'
+import { arrayToDiv, splitToChunks, convertToArray, shuffledArray } from './utils.js';
 
-const teachers = document.getElementById('teachers')
-const group1 = document.getElementById('group1')
-const group2 = document.getElementById('group2')
-const group3 = document.getElementById('group3')
+const teachers = document.getElementById('teachers');
+const group1 = document.getElementById('group1');
+const group2 = document.getElementById('group2');
+const group3 = document.getElementById('group3');
 
-const start = document.getElementById('start')
+const start = document.getElementById('start');
 
 start.addEventListener('click', () => {
-  genenator();
+  render();
 })
 
-function genenator() {
+function render() {
   document.querySelector('.wrapper').innerHTML = null;
 
   const arrayTeachers = convertToArray(teachers.value);
@@ -21,9 +21,9 @@ function genenator() {
 
   const chunk = arrayTeachers.length;
 
-  const arrayChunkGroup1 = splitToChunks(arrayGroup1, chunk)
-  const arrayChunkGroup2 = splitToChunks(arrayGroup2, chunk)
-  const arrayChunkGroup3 = splitToChunks(arrayGroup3, chunk)
+  const arrayChunkGroup1 = splitToChunks(arrayGroup1, chunk);
+  const arrayChunkGroup2 = splitToChunks(arrayGroup2, chunk);
+  const arrayChunkGroup3 = splitToChunks(arrayGroup3, chunk);
 
   const result = arrayTeachers.reduce((r, k, i) => {
     return {
@@ -42,10 +42,10 @@ function genenator() {
     let teacher;
     let group = [];
 
-    teacher = `<div>${teacherKey}</div>`
+    teacher = `<div>${teacherKey}</div>`;
 
     for (const teacherKeyKey in result[teacherKey]) {
-      group = [...group, result[teacherKey][teacherKeyKey]]
+      group = [...group, result[teacherKey][teacherKeyKey]];
     }
 
     row = `<div>
@@ -56,7 +56,7 @@ function genenator() {
     <div class="group1">${arrayToDiv(group[0])}</div>
     <div class="group2">${arrayToDiv(group[1])}</div>
     <div class="group3">${arrayToDiv(group[2])}</div>
-    </div>`
+    </div>`;
     document.querySelector('.wrapper').insertAdjacentHTML('beforeend', row);
   }
 }
