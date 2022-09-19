@@ -1,29 +1,26 @@
 import { arrayToDiv, splitToChunks, convertToArray, shuffledArray } from './utils.js';
 
 const teachers = document.getElementById('teachers');
-const group1 = document.getElementById('group1');
-const group2 = document.getElementById('group2');
-const group3 = document.getElementById('group3');
-
 const start = document.getElementById('start');
 
-start.addEventListener('click', () => {
-  render();
+document.getElementById('teachers').defaultValue = `Олег\nДенис\nРоман\nТарас\nАлексей\nСергей`
+
+start.addEventListener('click', async () => {
+  const res = await fetch('https://pairs-generator.onrender.com/api/groups')
+  const data = await res.json()
+  render(data);
 })
 
-function render() {
+function render(groups) {
   document.querySelector('.wrapper').innerHTML = null;
 
   const arrayTeachers = convertToArray(teachers.value);
-  const arrayGroup1 = convertToArray(group1.value);
-  const arrayGroup2 = convertToArray(group2.value);
-  const arrayGroup3 = convertToArray(group3.value);
 
   const chunk = arrayTeachers.length;
 
-  const arrayChunkGroup1 = splitToChunks(arrayGroup1, chunk);
-  const arrayChunkGroup2 = splitToChunks(arrayGroup2, chunk);
-  const arrayChunkGroup3 = splitToChunks(arrayGroup3, chunk);
+  const arrayChunkGroup1 = splitToChunks(groups[2].students, chunk);
+  const arrayChunkGroup2 = splitToChunks(groups[1].students, chunk);
+  const arrayChunkGroup3 = splitToChunks(groups[0].students, chunk);
 
   const result = arrayTeachers.reduce((r, k, i) => {
     return {
