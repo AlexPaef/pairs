@@ -18,9 +18,10 @@ function render(groups) {
 
   const chunk = arrayTeachers.length;
 
-  const arrayChunkGroup1 = splitToChunks(groups[2].students, chunk);
-  const arrayChunkGroup2 = splitToChunks(groups[1].students, chunk);
-  const arrayChunkGroup3 = splitToChunks(groups[0].students, chunk);
+  const arrayChunkGroup1 = splitToChunks(groups[3].students, chunk);
+  const arrayChunkGroup2 = splitToChunks(groups[2].students, chunk);
+  const arrayChunkGroup3 = splitToChunks(groups[1].students, chunk);
+  const arrayChunkGroup4 = splitToChunks(groups[0].students, chunk);
 
   const result = arrayTeachers.reduce((r, k, i) => {
     return {
@@ -28,6 +29,7 @@ function render(groups) {
         group1: shuffledArray(arrayChunkGroup1[i]),
         group2: shuffledArray(arrayChunkGroup2[i]),
         group3: shuffledArray(arrayChunkGroup3[i]),
+        group4: shuffledArray(arrayChunkGroup4[i]),
       }
     }
   }, {})
@@ -53,6 +55,7 @@ function render(groups) {
     <div class="group1">${arrayToDiv(group[0])}</div>
     <div class="group2">${arrayToDiv(group[1])}</div>
     <div class="group3">${arrayToDiv(group[2])}</div>
+    <div class="group4">${arrayToDiv(group[3])}</div>
     </div>`;
     document.querySelector('.wrapper').insertAdjacentHTML('beforeend', row);
   }
