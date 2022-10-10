@@ -18,9 +18,10 @@ function render(groups) {
 
   const chunk = arrayTeachers.length;
 
-  const arrayChunkGroup1 = splitToChunks(groups[2].students, chunk);
-  const arrayChunkGroup2 = splitToChunks(groups[1].students, chunk);
-  const arrayChunkGroup3 = splitToChunks(groups[0].students, chunk);
+
+  const arrayChunkGroup1 = splitToChunks(shuffledArray(groups[2].students), chunk);
+  const arrayChunkGroup2 = splitToChunks(shuffledArray(groups[1].students), chunk);
+  const arrayChunkGroup3 = splitToChunks(shuffledArray(groups[0].students), chunk);
 
   const result = arrayTeachers.reduce((r, k, i) => {
     return {
